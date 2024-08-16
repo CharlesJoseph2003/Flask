@@ -1,10 +1,3 @@
-import requests
-
-BASE = "http://127.0.0.1:5000/"
-headers = {"Content-Type": "application/json"}
-response = requests.put(BASE + "video/1", json={"likes": 10}, headers=headers)
-print(response.json())
-
 from flask import Flask
 from flask_restful import Api, Resource
 
@@ -28,3 +21,6 @@ class HelloWorld(Resource):
     # want to return json serializable objects so have to return dictionaries in general
 
 api.add_resource(HelloWorld, "/helloworld/<string:name>")
+
+if __name__ == "__main__":
+    app.run(debug=True)
